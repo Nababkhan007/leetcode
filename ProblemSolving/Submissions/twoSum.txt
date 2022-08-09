@@ -1,0 +1,54 @@
+// 1st submission
+import java.util.*;
+
+class Solution {
+    int index1 = 0, index2 = 0;
+    int [] numArray = new int [2];
+    boolean isMatched = false;
+    
+    public int[] twoSum(int[] nums, int target) {
+        for(int i = 0;  i < nums.length; i++) {
+            if (-1000000000 <= nums[i] && nums[i] <= 1000000000 ) {
+                for(int j = i+1;  j < nums.length; j++) {
+                    if(!isMatched) {
+                        if (nums[i] + nums[j] == target) {
+                            index1 = i;
+                            index2 = j;
+                            isMatched = true;
+                        }
+                    }
+                }
+            }
+            
+            numArray[0] = index1;
+            numArray[1] = index2;
+        }
+        
+        return numArray;
+    }
+}
+
+class Main {
+    public static void main (String [] args) {
+        Solution solution = new Solution();
+        int arr[]  = {-10, -1, -18, -19};
+        System.out.println(""+Arrays.toString(solution.twoSum(arr, -19)));
+    }
+}
+
+// 2nd submission
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int [] numArray = new int [2];
+        for(int i = 0;  i < nums.length; i++) {
+            for(int j = i+1;  j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    numArray[0] = i;
+                    numArray[1] = j;      
+                }
+            }
+        }
+        
+        return numArray;
+    }
+}
